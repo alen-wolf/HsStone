@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/home">
+
+    <fragment
+        android:id="@+id/home"
+        android:name="com.example.hstone.startFragments.Home"
+        android:label="Welcome"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_home_to_classSelect"
+            app:destination="@id/classSelect" />
+    </fragment>
+    <fragment
+        android:id="@+id/classSelect"
+        android:name="com.example.hstone.startFragments.classSelect"
+        android:label="Pick your Class"
+        tools:layout="@layout/fragment_class_select">
+        <action
+            android:id="@+id/action_classSelect_to_classFragment"
+            app:destination="@id/classFragment" />
+        <action
+            android:id="@+id/action_classSelect_to_palladinFragment"
+            app:destination="@id/palladinFragment" />
+        <action
+            android:id="@+id/action_classSelect_to_hunterFragment"
+            app:destination="@id/hunterFragment" />
+        <action
+            android:id="@+id/action_classSelect_to_rogueFragment"
+            app:destination="@id/rogueFragment" />
+        <action
+            android:id="@+id/action_classSelect_to_shamanFragment"
+            app:destination="@id/shamanFragment" />
+        <action
+            android:id="@+id/action_classSelect_to_mageFragment"
+            app:destination="@id/mageFragment" />
+        <action
+            android:id="@+id/action_classSelect_to_priestFragment"
+            app:destination="@id/priestFragment" />
+        <action
+            android:id="@+id/action_classSelect_to_warlockFragment"
+            app:destination="@id/warlockFragment" />
+        <action
+            android:id="@+id/action_classSelect_to_druidFragment"
+            app:destination="@id/druidFragment" />
+        <action
+            android:id="@+id/action_classSelect_to_demonHunterFragment"
+            app:destination="@id/demonHunterFragment" />
+        <action
+            android:id="@+id/action_classSelect_to_favouriteCards"
+            app:destination="@id/favouriteCards" />
+    </fragment>
+    <fragment
+        android:id="@+id/classFragment"
+        android:name="com.example.hstone.classOverview.warrior.ClassFragment"
+        android:label="The mighty Warrior"
+        tools:layout="@layout/fragment_class">
+        <action
+            android:id="@+id/action_classFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/action_classFragment_to_favouriteCards"
+            app:destination="@id/favouriteCards" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.hstone.detail.DetailFragment"
+        android:label="The Card"
+        tools:layout="@layout/fragment_detail">
+        <argument
+            android:name="selectedCard"
+            app:argType="com.example.hstone.network.CardProperty" />
+    </fragment>
+    <fragment
+        android:id="@+id/palladinFragment"
+        android:name="com.example.hstone.classOverview.palladin.PalladinFragment"
+        android:label="The courageous Paladin">
+        <action
+            android:id="@+id/action_palladinFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/action_palladinFragment_to_favouriteCards"
+            app:destination="@id/favouriteCards" />
+    </fragment>
+    <fragment
+        android:id="@+id/hunterFragment"
+        android:name="com.example.hstone.classOverview.hunter.HunterFragment"
+        android:label="The focused Hunter"
+        tools:layout="@layout/fragment_hunter">
+        <action
+            android:id="@+id/action_hunterFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/action_hunterFragment_to_favouriteCards"
+            app:destination="@id/favouriteCards" />
+    </fragment>
+    <fragment
+        android:id="@+id/rogueFragment"
+        android:name="com.example.hstone.classOverview.rogue.RogueFragment"
+        android:label="The cunning Rogue"
+        tools:layout="@layout/fragment_rogue">
+        <action
+            android:id="@+id/action_rogueFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/action_rogueFragment_to_favouriteCards"
+            app:destination="@id/favouriteCards" />
+    </fragment>
+    <fragment
+        android:id="@+id/shamanFragment"
+        android:name="com.example.hstone.classOverview.shaman.ShamanFragment"
+        android:label="The enlightened Shaman">
+        <action
+            android:id="@+id/action_shamanFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/action_shamanFragment_to_favouriteCards"
+            app:destination="@id/favouriteCards" />
+    </fragment>
+    <fragment
+        android:id="@+id/mageFragment"
+        android:name="com.example.hstone.classOverview.mage.MageFragment"
+        android:label="The intellectual Mage">
+        <action
+            android:id="@+id/action_mageFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/action_mageFragment_to_favouriteCards"
+            app:destination="@id/favouriteCards" />
+    </fragment>
+    <fragment
+        android:id="@+id/priestFragment"
+        android:name="com.example.hstone.classOverview.priest.PriestFragment"
+        android:label="The divine Priest">
+        <action
+            android:id="@+id/action_priestFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/action_priestFragment_to_favouriteCards"
+            app:destination="@id/favouriteCards" />
+    </fragment>
+    <fragment
+        android:id="@+id/warlockFragment"
+        android:name="com.example.hstone.classOverview.warlock.WarlockFragment"
+        android:label="The dark Warlock">
+        <action
+            android:id="@+id/action_warlockFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/action_warlockFragment_to_favouriteCards"
+            app:destination="@id/favouriteCards" />
+    </fragment>
+    <fragment
+        android:id="@+id/druidFragment"
+        android:name="com.example.hstone.classOverview.druid.DruidFragment"
+        android:label="The feral Druid">
+        <action
+            android:id="@+id/action_druidFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/action_druidFragment_to_favouriteCards"
+            app:destination="@id/favouriteCards" />
+    </fragment>
+    <fragment
+        android:id="@+id/demonHunterFragment"
+        android:name="com.example.hstone.classOverview.demonhunter.DemonHunterFragment"
+        android:label="The powerful Demon Hunter"
+        tools:layout="@layout/fragment_demon_hunter">
+        <action
+            android:id="@+id/action_demonHunterFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/action_demonHunterFragment_to_favouriteCards"
+            app:destination="@id/favouriteCards" />
+    </fragment>
+    <fragment
+        android:id="@+id/favouriteCards"
+        android:name="com.example.hstone.classOverview.favCards.FavouriteCards"
+        android:label="Your Favourites"
+        tools:layout="@layout/fragment_favourite_cards">
+        <action
+            android:id="@+id/action_favouriteCards_self"
+            app:destination="@id/favouriteCards"
+            app:popUpTo="@id/favouriteCards"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>

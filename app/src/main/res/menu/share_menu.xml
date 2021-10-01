@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/fav_card"
+        android:icon="@drawable/ic_fav_brown"
+        android:title="favourite"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/share_card"
+        android:icon="@drawable/ic_sahe_brown"
+        android:title="share"
+        app:showAsAction="ifRoom"/>
+</menu>
