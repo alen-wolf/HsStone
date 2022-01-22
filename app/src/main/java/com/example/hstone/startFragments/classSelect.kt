@@ -1,5 +1,9 @@
 package com.example.hstone.startFragments
 
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
+import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -17,56 +21,97 @@ class classSelect : Fragment(R.layout.fragment_class_select) {
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentClassSelectBinding.bind(view)
         fragmentClassSelectBinding=binding
+        val badAction = classSelectDirections.actionClassSelectToNoNetworkConnection()
 
 
         binding.imageButtonWarrior.setOnClickListener {
             val action = classSelectDirections.actionClassSelectToClassFragment()
-            findNavController().navigate(action)
+            if (!checkForInternet(this.requireContext())) {
+                findNavController().navigate(badAction)
+            }else{
+                findNavController().navigate(action)
+            }
         }
 
         binding.imageButtonPaladin.setOnClickListener {
             val action = classSelectDirections.actionClassSelectToPalladinFragment()
-            findNavController().navigate(action)
+            if (!checkForInternet(this.requireContext())) {
+                findNavController().navigate(badAction)
+            }else{
+                findNavController().navigate(action)
+            }
         }
 
         binding.imageButtonHunter.setOnClickListener {
             val action = classSelectDirections.actionClassSelectToHunterFragment()
-            findNavController().navigate(action)
+            if (!checkForInternet(this.requireContext())) {
+                findNavController().navigate(badAction)
+            }else{
+                findNavController().navigate(action)
+            }
         }
 
         binding.imageButtonRogue.setOnClickListener {
             val action = classSelectDirections.actionClassSelectToRogueFragment()
-            findNavController().navigate(action)
+            if (!checkForInternet(this.requireContext())) {
+                findNavController().navigate(badAction)
+            }else{
+                findNavController().navigate(action)
+            }
         }
 
         binding.imageButtonShaman.setOnClickListener {
             val action = classSelectDirections.actionClassSelectToShamanFragment()
-            findNavController().navigate(action)
+            if (!checkForInternet(this.requireContext())) {
+                findNavController().navigate(badAction)
+            }else{
+                findNavController().navigate(action)
+            }
         }
 
         binding.imageButtonMage.setOnClickListener {
             val action = classSelectDirections.actionClassSelectToMageFragment()
-            findNavController().navigate(action)
+            if (!checkForInternet(this.requireContext())) {
+                findNavController().navigate(badAction)
+            }else{
+                findNavController().navigate(action)
+            }
         }
 
         binding.imageButtonPriest.setOnClickListener {
             val action = classSelectDirections.actionClassSelectToPriestFragment()
-            findNavController().navigate(action)
+            if (!checkForInternet(this.requireContext())) {
+                findNavController().navigate(badAction)
+            }else{
+                findNavController().navigate(action)
+            }
         }
 
         binding.imageButtonWarlock.setOnClickListener {
             val action = classSelectDirections.actionClassSelectToWarlockFragment()
-            findNavController().navigate(action)
+            if (!checkForInternet(this.requireContext())) {
+                findNavController().navigate(badAction)
+            }else{
+                findNavController().navigate(action)
+            }
         }
 
         binding.imageButtonDruid.setOnClickListener {
             val action= classSelectDirections.actionClassSelectToDruidFragment()
-            findNavController().navigate(action)
+            if (!checkForInternet(this.requireContext())) {
+                findNavController().navigate(badAction)
+            }else{
+                findNavController().navigate(action)
+            }
         }
 
         binding.imageButtonDemonHunter.setOnClickListener {
             val action = classSelectDirections.actionClassSelectToDemonHunterFragment()
-            findNavController().navigate(action)
+            if (!checkForInternet(this.requireContext())) {
+                findNavController().navigate(badAction)
+            }else{
+                findNavController().navigate(action)
+            }
         }
 
         binding.floatingActionButton.setOnClickListener {
@@ -74,7 +119,26 @@ class classSelect : Fragment(R.layout.fragment_class_select) {
             findNavController().navigate(action)
         }
 
+    }
 
+    private fun checkForInternet(context: Context): Boolean {
+
+        val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            val network = connectivityManager.activeNetwork ?: return false
+            val activeNetwork = connectivityManager.getNetworkCapabilities(network) ?: return false
+            return when {
+                activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> true
+                activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> true
+                else -> false
+            }
+        } else {
+            @Suppress("DEPRECATION") val networkInfo =
+                connectivityManager.activeNetworkInfo ?: return false
+            @Suppress("DEPRECATION")
+            return networkInfo.isConnected
+        }
     }
 
 }

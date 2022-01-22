@@ -51,6 +51,9 @@
         <action
             android:id="@+id/action_classSelect_to_favouriteCards"
             app:destination="@id/favouriteCards" />
+        <action
+            android:id="@+id/action_classSelect_to_noNetworkConnection"
+            app:destination="@id/noNetworkConnection" />
     </fragment>
     <fragment
         android:id="@+id/classFragment"
@@ -186,4 +189,9 @@
             app:popUpTo="@id/favouriteCards"
             app:popUpToInclusive="true" />
     </fragment>
+    <fragment
+        android:id="@+id/noNetworkConnection"
+        android:name="com.example.hstone.startFragments.noNetworkConnection"
+        android:label="Bad Request"
+        tools:layout="@layout/fragment_networkerror" />
 </navigation>
