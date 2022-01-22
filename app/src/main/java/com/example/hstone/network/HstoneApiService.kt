@@ -28,7 +28,7 @@ private val retrofit = Retrofit.Builder()
 
 interface HstoneApiService {
     @Headers(
-        "X-Rapidapi-Key: 73c4ab10aamsh9f5df67706759e1p18f62fjsncfcf6887d8e2",
+        "X-Rapidapi-Key: ENTER-PERSONAL-KEY-HERE",
         "X-Rapidapi-Host: omgvamp-hearthstone-v1.p.rapidapi.com)"
     )
     @GET("/cards/classes/{class}")
